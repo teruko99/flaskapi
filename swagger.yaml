@@ -1,0 +1,81 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  description: Optional multiline or single-line description in [CommonMark](http://commonmark.org/help/) or HTML.
+  version: 0.1.9
+servers:
+  - url: http://localhost:5000
+    description: Optional server description, test server
+paths:
+  /jokes:
+    get:
+      summary: Retorna uma piada e uma imagem de gato.
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '200':
+          description: A JSON array de piadas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /users:
+    post:
+      summary: Cria usuário e senha e salva no mongoDB.
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '200':
+          description: A JSON array of user names
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /login:
+    post:
+      summary: Cria um access token.
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '200':
+          description: A JSON array of user names
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /endereco:
+    post:
+      summary: Retorna todos os campos da ViaCEP e do INPE juntos.
+      description: Consulta o CEP na api da ViaCEP (https://viacep.com.br/), pega a localidade retornada, busca o código dessa localidade e em seguida busca a previsão do tempo dos 4 dias na api do INPE (http://servicos.cptec.inpe.br/XML/).
+      parameters:
+        - in: header
+          name: cep
+          schema:
+            type: string
+            format: uuid
+          required: true
+      responses:
+        '200':
+          description: A JSON array of user names
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /logs:
+    get:
+      summary: Traz todos os logs do usuário especificado do ElasticSearch.
+      description: Optional extended description in CommonMark or HTML.
+      responses:
+        '200':
+          description: A JSON array of user names
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string

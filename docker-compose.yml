@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+  mongodb:
+    image: mongo:5.0
+    restart: always
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - "27017:27017"
+  elasticsearch:
+    image: elasticsearch:7.16.1
+    restart: always
+    environment:
+      - discovery.type=single-node
+    volumes:
+      - ./data/elasticsearch:/usr/share/elasticsearch/data
+    ports:
+      - "9200:9200"
+  app:
+    build: .
+    restart: always
+    ports:
+      - "8000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/
+      - ELASTICSEARCH_HOST=elasticsearch:9200
+    depends_on:
+      - mongodb
+      - elasticsearch
