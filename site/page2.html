@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link href="page2.css" rel="stylesheet" type="text/css" media="all">
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
+    <script src="magic.js"></script>
+  </head>
+  <body>
+    <div class="caixa">
+    <img src="gawr.png">
+    <form onsubmit="criaUsuario()">
+        <label for="usuario1">Usuário:</label>
+        <input name="usuario1" id="usuario1" type="text" required>
+        <br>
+        <br>
+        <label for="senha1">Senha:</label>
+        <input name="senha1" id="senha1" type="password" required>
+        <br>
+        <br>
+        <button id="btn3" class="myButton" type="submit">Criar</button>
+    </form>
+    <hr>
+    <form id="frm1" onsubmit="fazLogin()">
+        <label for="usuario2">Usuário:</label>
+        <input name="usuario2" id="usuario2" type="text" required>
+        <br>
+        <br>
+        <label for="senha2">Senha:</label>
+        <input name="senha2" id="senha2" type="password" required>
+        <br>
+        <br>
+        <button id="btn5" class="myButton" type="submit">Login</button>
+    </form>
+    <hr>
+    <p>bem-vinde <b id="datsme">nezuko</b>!</p>
+    <form id="frm2" onsubmit="buscaCep()">
+        <label for="cep">CEP:</label>
+        <input name="cep" id="cep" type="text" required>
+        <br>
+        <br>
+        <button id="btn4" class="myButton" type="submit">Buscar</button>
+    </form>
+    <br>
+    <form id="frm3" onsubmit="trazLogs()">
+        <label for="usuario3">Usuário:</label>
+        <input name="usuario3" id="usuario3" type="text" disabled value="nezuko">
+        <br>
+        <br>
+        <label for="token">Token:</label>
+        <input name="token" id="token" type="text" disabled value="G6943LMReKjkqdAVrAiP">
+        <br>
+        <br>
+        <button id="btn6" class="myButton" type="submit">Traz logs</button>
+    </form>
+    <p id="demo"></p>
+    </div>
+  </body>
+</html>
